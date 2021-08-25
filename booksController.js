@@ -50,6 +50,9 @@ exports.update = function (req, res, next) {
   if (!req.body.author) {
     return next(createError(400, "author is required"));
   }
+  if (!req.body.read) {
+    return next(createError(400, "read true or false is required"));
+  }
   if (!bookitem) {
     return next(createError(404, "no book with that id"));
   }
